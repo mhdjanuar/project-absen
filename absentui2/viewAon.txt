@@ -1,0 +1,27 @@
+-View dataabsenguru
+ select ag.idAbsenGuru,au.idAbsenUtama,au.NIS,s.nama,s.kodeKelas,au.tanggal,au.keterangan,au.dataSurat,ag.status
+  from absenguru as ag
+  inner join absenutama as au on ag.idAbsenUtama = au.idAbsenUtama
+  inner join siswa as s on au.NIS = s.NIS;
+
+-View dataabsenpiket
+ select ap.idAbsenPiket,au.idAbsenUtama,au.NIS,s.nama,s.kodeKelas,au.tanggal,au.keterangan,au.dataSurat,ap.status
+  from absenpiket as ap
+  inner join absenutama as au on ap.idAbsenUtama = au.idAbsenUtama
+  inner join siswa as s on au.NIS = s.NIS;
+
+-View Report
+  select r.idReport,au.idAbsenUtama,au.NIS,s.nama,s.kodeKelas,au.tanggal,au.keterangan,au.dataSurat,r.status
+  from report as r
+  inner join absenutama as au on r.idAbsenUtama = au.idAbsenUtama
+  inner join siswa as s on au.NIS = s.NIS;
+
+catatan:
+ 1.column status di absenutama dihapus
+ 2.absenguru dan piket ditambahkan column status
+
+event :
+
+select au.idAbsenUtama,au.NIS,s.nama,s.kodeKelas,au.tanggal,au.keterangan,au.dataSurat,au.status
+ from absenutama as au
+ inner join siswa as s on au.NIS = s.NIS;

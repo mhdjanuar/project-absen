@@ -1,0 +1,19 @@
+ update event set status = 0 where waktu = subdate('2018-11-22', interval 3 day);
+
+select subdate(substring(now(),1,10), interval 3 day);
+
+untuk absen yang sudah lewat 3 hari
+-Guru
+ create event statusGuru
+ on schedule every 3 day
+ do update absenguru set status = 1 where tanggal = subdate(substring(now(),1,10), interval 3 day);
+
+-piket
+ create event statusPiket
+ on schedule every 3 day
+ do update absenpiket set status = 1 where tanggal = subdate(substring(now(),1,10), interval 3 day);
+
+-report
+ create event statusReport
+ on schedule every 3 day
+ do update report set status = 1 where tanggal = subdate(substring(now(),1,10), interval 3 day);
